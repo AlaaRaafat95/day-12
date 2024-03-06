@@ -7,33 +7,35 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Search City"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Center(
-          child: TextField(
-            onSubmitted: (data) async {
-              await BlocProvider.of<WeatherCubit>(context)
-                  .getWeather(cityName: data);
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Search City"),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Center(
+            child: TextField(
+              onSubmitted: (data) async {
+                await BlocProvider.of<WeatherCubit>(context)
+                    .getWeather(cityName: data);
 
-              Navigator.pop(context);
-            },
-            decoration: const InputDecoration(
-              contentPadding:
-                  EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-              suffixIcon: Icon(
-                Icons.search,
-              ),
-              hintText: "Enter city name",
-              label: Text(
-                "Search",
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(10.0),
+                Navigator.pop(context);
+              },
+              decoration: const InputDecoration(
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                suffixIcon: Icon(
+                  Icons.search,
+                ),
+                hintText: "Enter city name",
+                label: Text(
+                  "Search",
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10.0),
+                  ),
                 ),
               ),
             ),

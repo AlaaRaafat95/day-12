@@ -12,10 +12,11 @@ class WeatherInfo extends StatelessWidget {
         BlocProvider.of<WeatherCubit>(context).weatherModel ?? WeatherModel();
     return Container(
       decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-        BlocProvider.of<WeatherCubit>(context).getWeatherThemeColor(),
-        BlocProvider.of<WeatherCubit>(context).getWeatherThemeColor()[200]!
-      ], begin: Alignment.topLeft, end: Alignment.bottomLeft)),
+        gradient: LinearGradient(colors: [
+          BlocProvider.of<WeatherCubit>(context).getWeatherThemeColor(),
+          BlocProvider.of<WeatherCubit>(context).getWeatherThemeColor()[200]!
+        ], begin: Alignment.topLeft, end: Alignment.bottomLeft),
+      ),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
