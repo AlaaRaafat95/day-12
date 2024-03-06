@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubit/weather_cubit.dart';
 
-// ignore: must_be_immutable
 class SearchPage extends StatelessWidget {
-  SearchPage({Key? key}) : super(key: key);
-
-  late String cityName;
+  const SearchPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +16,8 @@ class SearchPage extends StatelessWidget {
         child: Center(
           child: TextField(
             onSubmitted: (data) async {
-              cityName = data;
-              BlocProvider.of<WeatherCubit>(context).getWeather(cityName);
+              await BlocProvider.of<WeatherCubit>(context)
+                  .getWeather(cityName: data);
 
               Navigator.pop(context);
             },
